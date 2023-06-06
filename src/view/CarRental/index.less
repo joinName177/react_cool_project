@@ -1,0 +1,36 @@
+@import '../../assets/common.less';
+.CarRental{
+    .CarRental_l{
+        width: 126px;
+        .ant-anchor-link-title{
+            color: #707070;
+        }
+        :where(.css-dev-only-do-not-override-mxhywb).ant-anchor-wrapper .ant-anchor .ant-anchor-link-active>.ant-anchor-link-title{
+            color: #1bd8cc;
+        }
+        :where(.css-dev-only-do-not-override-mxhywb).ant-anchor-wrapper:not(.ant-anchor-wrapper-horizontal) .ant-anchor .ant-anchor-ink{
+            background-color: #1bd8cc;
+        }
+        .anchor-nav-item{
+            // color: #707070;
+            &>span{
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 6px;
+                &.cxgl-icon{
+                    background: url(../../assets/images/跑车.png) no-repeat;
+                    background-size: 18px;
+                }
+                &.cxtx-icon{
+                    background: url(../../assets/images/货车-已完成_fill.png) no-repeat;
+                    background-size: 18px;
+                }
+            }
+        }
+    }
+    .CarRental_r{
+        flex: 1;
+        overflow: auto;
+    }
+}

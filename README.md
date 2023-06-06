@@ -1,6 +1,3 @@
-# react_cool_project
-技术栈：react_ts_ahooks_redux_router_nodeserver
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

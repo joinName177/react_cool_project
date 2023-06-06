@@ -1,0 +1,62 @@
+@import "../../assets/common.less";
+
+.dataManage{
+    padding: 0 16px;
+    .upload_module{
+        max-height: 200px;
+        overflow: auto;
+        .upload_icon{
+            display: block;
+            width: 34px;
+            height: 34px;
+            background: url(../../assets/images/上传图片.png) no-repeat;
+            background-size: 34px;
+        }
+    }
+
+    .home_carouse_manage{
+        max-height: 200px;
+        overflow: auto;
+        .add_btn{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            border: 1px dashed #d9d9d9;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.02);
+            cursor: pointer;
+            transition: border-color 0.3s;
+            &:hover{
+                transition: border-color 0.3s;
+                border-color: #1677ff;
+                .add_btn_icon{
+                    background: url(../../assets/images/首页轮播图active.svg) no-repeat;
+                    background-size: 34px;
+                }
+            }
+            .add_btn_icon{
+                display: inline-block;
+                width: 34px;
+                height: 34px;
+                background: url(../../assets/images/首页轮播图.svg) no-repeat;
+                background-size: 34px;
+                
+            }
+        }
+        .img_modal_item{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #d9d9d9;
+            // margin-block: 0 8px;
+            // margin-inline: 0 8px;
+            box-sizing: border-box;
+            vertical-align: top;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+    }
+}

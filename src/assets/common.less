@@ -1,0 +1,133 @@
+/* 全局样式 */
+body {
+    margin: 0;
+    // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    //   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    //   sans-serif;
+    // -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+    /* CDN 服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+    font-family: "思源宋体 Regular";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/p7aked7iqhKO/rc96ccHFeF7s.woff2") format("woff2"),
+    url("//at.alicdn.com/wf/webfont/p7aked7iqhKO/jFmUzTnC1i4z.woff") format("woff");
+    font-display: swap;
+
+  //   font-family: "钉钉进步体 Regular";font-weight: 400;src: url("//at.alicdn.com/wf/webfont/p7aked7iqhKO/MVVMUYsvPPdP.woff2") format("woff2"),
+  // url("//at.alicdn.com/wf/webfont/p7aked7iqhKO/hsgjtAqkPt46.woff") format("woff");
+  // font-display: swap;
+
+  // font-family: "钉钉进步体 Regular";
+  // font-weight: 400;src: url("//at.alicdn.com/wf/webfont/p7aked7iqhKO/IjRSYP1r1wa6.woff2") format("woff2"),
+  // url("//at.alicdn.com/wf/webfont/p7aked7iqhKO/GOYANyFvR1bU.woff") format("woff");
+  // font-display: swap;
+
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+    overflow: hidden;
+  }
+
+
+  
+  .h_100{
+    height: 100%;
+  }
+  
+  .flex{
+    display: flex;
+    &.flex1{
+      flex: 1;
+    }
+    &.flow{
+      flex-flow: column;
+    }
+    &.center{
+      align-items: center;
+    }
+    &.between{
+      justify-content: space-between;
+    }
+    &.flexend{
+      justify-content: flex-end;
+    }
+  }
+ 
+  .blod{
+    font-weight: bold;
+  }
+  .hide{
+    display: none !important;
+  }
+  .margin_r_6{
+    margin-right: 6px;
+  }
+  
+  /*单行超出省略号...*/
+  .text-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+  }
+  /*多行超出省略号...*/
+  .text-more-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+  
+  /* 滚动条样式 */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px #0000002e;
+    opacity: 0.2;
+  }
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px rgb(255 255 255 / 20%);
+    border-radius: 0;
+  }
+
+
+  // 定义一些常用变量
+  @text-color-gray: #a8aaad;
+  @text-color-black:#252525;
+  @text-size-12:12px;
+  @text-size-13:13px;
+  @text-size-14:14px;
+  @text-size-16:16px;
+
+  @box-border-radius4:4px;
+  @box-border-radius6:6px;
+  @box-border-radius8:8px;
+  @box-border-radius10:10px;
+
+  @bg-color-white:white;
+
+
+
+  // 大模态框
+  .global_larg_modal{
+    .ant-modal{
+      width: 100% !important;
+      transform-origin: 897px -29px;
+      top: 0px;
+      max-width: calc(100vw - 0px);
+      height: 100%;
+      padding-bottom: 0;
+      .ant-modal-content{
+        height: 100%;
+        border-radius: 0;
+        border: none;
+        .ant-modal-body{
+          height: 88%;
+        }
+      }
+    }
+  }

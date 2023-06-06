@@ -1,0 +1,71 @@
+.image_modal{
+    overflow: hidden;
+    padding: 5px 0px 0 5px;
+    .image_modal_item{
+        width: 56px;
+        height: 56px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        position: relative;
+        &.active{
+            &::before{
+                content: "";
+                width: 60px;
+                height: 60px;
+                background: #0000009e;
+                position: absolute;
+                z-index: 3;
+                left: -2px;
+                top: -2px;
+            }
+            &::after{
+                content: "";
+                width: 60px;
+                height: 60px;
+                position: absolute;
+                /* background: red; */
+                top: -5px;
+                left: -5px;
+                border: 3px solid #16faef;
+            }
+        }
+        &:nth-child(7n){
+            margin-right: 0;
+        }
+        .outlined_icon{
+            position: absolute;
+            z-index: 1;
+            font-size: 26px;
+            color: #ffffff;
+            /* font-weight: bold; */
+            top: 28%;
+            right: 26%;
+            z-index: 3;
+        }
+    }
+
+    .editable-row {
+        .ant-form-item-explain {
+            position: absolute;
+            top: 100%;
+            font-size: 12px;
+          }
+    }
+}
+
+
+// .manage_modal{
+//     .modal_header{
+//         display: flex;
+//         justify-content: space-between;
+//         .cancel{
+//           display: block;
+//           width: 42px;
+//           height: 42px;
+//           background-color: red;
+//           background-size: 42px;
+//         }
+//       }
+// }

@@ -1,0 +1,109 @@
+@import '../../assets/common.less';
+.test{
+	color: #00d8a0;
+	color: #515151;
+}
+.login_module{
+    position: relative;
+	background:  -webkit-linear-gradient(left, white 30% , #1bd8cc45 );
+	.login_module_l{
+		flex: 1;
+		background: url(../../assets/images/bg1.svg) no-repeat;
+		background-size: 476px 330px;
+		background-position: 60px 248px;
+		opacity: 0.8;
+	}
+	.login_module_r{
+		width:54%;
+		.loginBox{
+			width: 520px;
+			border-radius: 10px;
+			box-shadow: 0 15px 25px 0 #adb2b8;
+			padding: 40px 80px;
+			box-sizing: border-box;
+			justify-content: center;
+			&>div{
+				&:nth-child(1){
+					width: 300px;
+					.ant-input-affix-wrapper {
+						border: none;
+						border-bottom: 1px solid #c7c9c8;
+						background: none;
+						border-radius: 0;
+						padding: 4px 0;
+						transition: all ease .3s;
+					}
+					:where(.css-dev-only-do-not-override-mxhywb).ant-input-affix-wrapper:focus, 
+					:where(.css-dev-only-do-not-override-mxhywb).ant-input-affix-wrapper-focused{
+						box-shadow: none;
+						border-color: #00d8a0;
+						transition: all ease .3s;
+					}
+					:where(.css-dev-only-do-not-override-mxhywb).ant-input{
+						background: none;
+					}
+					.login_button,.zc_button{
+						display: block;
+						width: 16px;
+						height: 16px;
+						background: url(../../assets/images/启动.svg) no-repeat;
+						background-size: 16px;
+						cursor: pointer;
+						margin-right: 6px;
+					}
+					.zc_button{
+						background: url(../../assets/images/注册.svg) no-repeat;
+						background-size: 16px;
+					}
+
+					:where(.css-dev-only-do-not-override-mxhywb).ant-btn-primary{
+						color: #fff;
+						background-color: #67e0a4;
+						box-shadow: 0 2px 0 rgb(24 208 159 / 10%);
+						transition: all ease .3s;
+					}
+					:where(.css-dev-only-do-not-override-mxhywb).ant-btn-primary:not(:disabled):hover{
+						background-color: #1bd8cc;
+						transition: all ease .3s;
+					}		
+					
+					:where(.css-dev-only-do-not-override-mxhywb).ant-form-item .ant-form-item-feedback-icon-error,
+					:where(.css-dev-only-do-not-override-mxhywb).ant-form-item .ant-form-item-explain-error{
+						color: #fa5914;
+					}
+					:where(.css-dev-only-do-not-override-mxhywb).ant-form-item .ant-form-item-feedback-icon-success{
+						color: #67e0a4;
+					}
+
+				}
+			}
+			.per_user_icon,.per_pwd_icon{
+				display: block;
+				width: 30px;
+				height: 30px;
+				background: url(../../assets/images/用户2.svg) no-repeat;
+				background-size: 30px;
+			}
+			.per_pwd_icon{
+				background: url(../../assets/images/密码.svg) no-repeat;
+				background-size: 30px;
+			}
+		}
+	}
+
+  .header_logo{
+	position: absolute;
+    top: 10px;
+    left: 24px;
+    color: #87878e;
+	&>span{
+		display: block;
+		width: 32px;
+		height: 32px;
+		// background: url(../../assets/images/旅行.png) no-repeat;
+		background: url(../../assets/images/logo22.svg) no-repeat;
+		background-size: 32px;
+		margin-right: 6px;
+	}
+  }
+}

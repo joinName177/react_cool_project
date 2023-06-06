@@ -1,0 +1,241 @@
+@import "./assets/common.less";
+.home_wolf{
+    font-size: 13px;
+    header{
+        height: 60px;
+        padding: 0 12px;
+        .logo{
+            width: 100%;
+            color: #404588;
+            font-weight: bold;
+            .fj_icon{
+                width: 22px;
+                height: 22px;
+                display: inline-block;
+                border-radius: 50%;
+                position: relative;
+                margin-right: 4px;
+                background: url(./assets/images/旅行-3.png) no-repeat;
+                background-size: 22px;
+            }
+            .user_info{
+                cursor: pointer;
+            }
+        }
+    }
+    .my_app_wrap{
+        flex: 1;
+        box-shadow: inset 0px 15px 10px -15px rgba(0, 0, 0, 0.3);
+        .home_wolf_l{
+            width: 278px;
+            padding: 12px;
+            // transition-duration: 0.3s;
+            position: relative;
+            box-shadow: 15px 0 15px -15px rgba(0, 0, 0, 0.3), -15px 0 15px -15px white;
+            .home_worl_l_c{
+                border: 1px solid #dfe1e4;
+                padding: 6px 18px 6px 8px;
+                border-radius: 6px;
+               
+                justify-content: space-between;
+                margin: 8px 0 24px 0;
+                cursor: pointer;
+                .theme_icon{
+                    width: 34px;
+                    height: 34px;
+                    border-radius: 10px;
+                    background-color: #2d337ce8;
+                    display: block;
+                    position: relative;
+                    margin-right: 8px;
+                    &::after{
+                        content: "";
+                        width: 22px;
+                        height: 22px;
+                        background: url(./assets/images/主题.png) no-repeat;
+                        background-size: 22px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        -webkit-transform: translate(-50%,-50%);
+                        -moz-transform: translate(-50%,-50%);
+                        transform:translate(-50%,-50%);
+                    }
+                }
+                .theme_msg{
+                    font-weight: bold;
+                    &>span{
+                        &:nth-child(1){
+                            color: #545657;
+                        }
+                        &:nth-child(2){
+                            background-color: #1bd8cc;
+                            color: #ffffff;
+                            padding: 1px 6px;
+                            border-radius: 5px;
+                            max-width: 66px;
+                        }
+                    }
+                }
+                .drop_down_icon{
+                    display: block;
+                    width: 14px;
+                    height: 14px;
+                    background: url(./assets/images/下拉.png) no-repeat;
+                    background-size: 14px;
+                    transition: all ease .3s;
+                    &.open{
+                        transform: rotate(180deg);
+                        transition: all ease .3s;
+                    }
+                }
+            }
+            .home_worl_l_b{
+                font-weight: bold;
+                &>a{
+                    text-decoration: none;
+                }
+                .r_item{
+                    
+                    padding: 12px;
+                    margin-bottom: 2px;
+                    border-radius: 10px;
+                    color: #868798e8;
+                    display: flex;
+                    align-items: center;
+                    &.r_item_active{
+                        background-color: #edf5ff;
+                        color: #1bd8cc;
+                        .r_item_icon{
+                            width: 20px;
+                            height: 20px;
+                            display: inline-block;
+                            margin-right: 10px;
+                            &.zy_icon{
+                                background: url(./assets/images/主页2-active.png) no-repeat;
+                                background-size: 20px;
+                            }
+                            &.jD_icon{
+                                background: url(./assets/images/酒店-active.png) no-repeat;
+                                background-size: 20px;
+                            }
+                            &.jd_icon{
+                                background: url(./assets/images/景点-active.png) no-repeat;
+                                background-size: 20px;
+                            }
+                            &.dt_icon{
+                                background: url(./assets/images/地图-active.png) no-repeat;
+                                background-size: 20px;
+                            }
+                            &.ms_icon{
+                                background: url(./assets/images/地道美食-active.png) no-repeat;
+                                background-size: 20px;
+                            }
+                            &.fj_icon{
+                                background: url(./assets/images/风景-active.png) no-repeat;
+                                background-size: 20px;
+                            }
+                            &.fl_icon{
+                                background: url(./assets/images/数据库-active.png) no-repeat;
+                                background-size: 20px;
+                            }
+                            &.car_icon{
+                                background: url(./assets/images/电动汽车-active.png) no-repeat;
+                                background-size: 22px;
+                            }
+                        }
+                    }
+                    .r_item_icon{
+                        width: 20px;
+                        height: 20px;
+                        display: inline-block;
+                        margin-right: 10px;
+                        &.zy_icon{
+                            background: url(./assets/images/主页2.png) no-repeat;
+                            background-size: 20px;
+                        }
+                        &.jD_icon{
+                            background: url(./assets/images/酒店.png) no-repeat;
+                            background-size: 20px;
+                        }
+                        &.jd_icon{
+                            background: url(./assets/images/景点.png) no-repeat;
+                            background-size: 20px;
+                        }
+                        &.dt_icon{
+                            background: url(./assets/images/地图.png) no-repeat;
+                            background-size: 20px;
+                        }
+                        &.ms_icon{
+                            background: url(./assets/images/地道美食.png) no-repeat;
+                            background-size: 20px;
+                        }
+                        &.fj_icon{
+                            background: url(./assets/images/风景.png) no-repeat;
+                            background-size: 20px;
+                        }
+                        &.fl_icon{
+                            background: url(./assets/images/数据库.png) no-repeat;
+                            background-size: 20px;
+                        }
+                        &.car_icon{
+                            background: url(./assets/images/电动汽车.png) no-repeat;
+                            background-size: 22px;
+                        }
+                    }
+                }
+            }
+            &.width54{
+                width: 54px;
+            }
+        }
+    }
+    .home_wolf_r{
+        flex: 1;
+        padding-top: 12px;
+        background-color: #eaeaea85;
+        .my_app_right{
+            height: 100%;
+            // background:linear-gradient(#ffffff,#f4f5f7);
+            // padding: 0 12px;
+            
+            .my_app_content{
+                .example_layout{
+                    justify-content: space-between;
+                }
+    
+                .ant-collapse-content-box{
+                    padding: 16px 0 16px 16px;
+                }
+            }
+    
+            .remarkeStyle{
+                background: #f2f2f2;
+                display: inline-block;
+                padding: 6px;
+                border-radius: 4px;
+                font-family: cursive;
+                max-width: 500px;
+            }
+        }
+
+
+        // background: #fbfcfe;
+
+        
+    }
+}
+
+// 主页头像下拉菜单样式
+.user_info_drop{
+    .ant-dropdown-menu-item{
+        color: #faad14;
+    }
+}
+
+.global_picker_icon{
+    width: 18px;
+    height: 18px;
+    background: url(./assets/images/日历.png) no-repeat;
+    background-size: 18px;
+  }

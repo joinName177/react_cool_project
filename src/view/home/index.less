@@ -1,0 +1,161 @@
+@import "../../assets/common.less";
+.home_module{
+    color: @text-color-gray;
+    padding: 0 12px 12px 12px;
+   
+    .home_module_top{
+        height: calc(100% - 396px);
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+        &>div{
+            &:nth-child(1){
+                width: 500px;
+                .r_item{
+                    width: 220px;
+                    height: 126.5px;
+                    background-color: #ffffffc7;
+                    padding: 12px;
+                    .r_item_span{
+                        display: inline-block;
+                        width: 36px;
+                        height: 36px;
+                        padding: 2px;
+                        box-shadow: 0 8px 10px #3146590d;
+                        border-radius: 8px;
+                        border: 1px solid #70d05833;
+                        cursor: pointer;
+                        
+                    }
+                    &.r_item_1{
+                        width: 236px;
+                        height: 98px;
+                   
+                        .ant-space-item:nth-child(1){
+                            .r_item_span{
+                                background: url(../../assets/images/微信.svg) no-repeat;
+                                background-size: 36px;
+                                background-position: center;
+                            }
+                        }
+                        .ant-space-item:nth-child(2){
+                            .r_item_span{
+                                background: url(../../assets/images/头条.svg) no-repeat;
+                                background-size: 36px;
+                                background-position: center;
+                            }
+                        }
+                        .ant-space-item:nth-child(3){
+                            .r_item_span{
+                                background: url(../../assets/images/空间.svg) no-repeat;
+                                background-size: 36px;
+                                background-position: center;
+                            }
+                        }
+                        .ant-space-item:nth-child(4){
+                            .r_item_span{
+                                background: url(../../assets/images/app管理.svg) no-repeat;
+                                background-size: 36px;
+                                background-position: center;
+                            }
+                        }
+                    }
+                    &.r_item_2{
+                        width: 204px;
+                        height: 98px;
+                    }
+                  
+
+                    &.r_item_3, &.r_item_4{
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        height: 156px;
+                        transition: all ease .3s;
+                        cursor: pointer;
+                        overflow: hidden;
+                        .article_bg{
+                            height: 100px;
+                            transition: all ease .3s;
+                        }
+                        .article_if{
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            &>span{
+                                &:nth-child(1){
+                                    font-size: 1.21em;
+                                    color: #000;
+                                }
+                                &:nth-child(2){
+                                    color: #697b8c;
+                                }
+                            }
+                        }
+
+                        &:hover{
+                            box-shadow: 0 8px 10px #3146590d;
+                            transition: all ease .3s;
+                            
+                            .article_bg{
+                                transform: scale(1.1);
+                                transition: all ease .3s;
+                            }
+                        }
+                        
+                    }
+
+                    &.r_item_3{
+                        width: 236px;
+                        .article_bg{
+                            background:url(../../assets/images/汽车11.png) no-repeat;
+                            background-size: 236px 236px;
+                            background-position: center;
+
+                        }
+                    }
+                    
+                    &.r_item_4{
+                        width: 204px;
+                        .article_bg{
+                            background:url(../../assets/images/汽车12.png) no-repeat;
+                            background-size: 236px 236px;
+                            background-position: center;
+
+                        }
+                    }
+                }
+            }
+            &:nth-child(2){
+                width: calc(100% - 536px);
+                background-color: white;
+                padding: 12px;
+
+                .article_new_wrap{
+                    height: 282px;
+                    overflow: auto;
+                    .article_new_item{
+                        background-color: #697b8c;
+                        margin-bottom: 2px;
+                    }
+                }
+            }
+        }
+    }
+    .home_module_btm{
+        height: 368px;
+        display: flex;
+        justify-content: space-between;
+        &>div{
+            &:nth-child(1){
+                width: 500px;
+            }
+            &:nth-child(2){
+                width: calc(100% - 512px)
+            }
+        }
+    }
+    
+}
