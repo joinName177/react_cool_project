@@ -43,7 +43,7 @@ function UserProfile({ loginUserInfo, saveStoreUser }: UserProfileProps) {
       },
     },
   ]);
-  // console.log(loginUserInfo);
+  
   function getProfile() {
     return {
       avatar: loginUserInfo?.profile ? loginUserInfo?.profile : avatarImg,
@@ -54,9 +54,11 @@ function UserProfile({ loginUserInfo, saveStoreUser }: UserProfileProps) {
 
   useMount(() => {
     // console.log("____________________--*&(*", loginUserInfo?.isManager === 2);
+    console.log(loginUserInfo);
     if(!loginUserInfo?.userId){
       //重定向到401页面
       navigate("/p_401");
+      return
     }
     if (loginUserInfo?.isManager === 2) {
       setItems([

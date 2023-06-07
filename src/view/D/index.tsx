@@ -1,16 +1,34 @@
 import React, { useState } from "react";
-import { get, post } from "../../utils/service";
-import { useMount, useRequest } from "ahooks";
-import { Image, Select } from "antd";
+import { get } from "../../utils/service";
+import { useRequest } from "ahooks";
+import { Select, Table } from "antd";
 import CompontPdf from "componets/html2canvas_jspdf/compont_pdf";
+import EmptyData from "componets/emptyData";
 
+/**
+ * 测试PDF导出组件
+ * @returns 
+ */
 export default function D() {
-  return <CompontPdf>
-    
-  </CompontPdf>;
+  return (
+    <CompontPdf title={new Date().getTime()}>
+      <DF />
+    </CompontPdf>
+  );
 }
 
-async function getWather(city: string): Promise<string> {
+type dataType = {
+  city: string;
+  future: Array<any>;
+  realtime: any;
+};
+interface DataProps {
+  error_code: Number;
+  reason: string;
+  result: dataType;
+}
+
+async function getWather(city: string): Promise<DataProps> {
   return new Promise((resolve, reject) => {
     let $key = encodeURI(city);
     get(
@@ -29,29 +47,73 @@ function DF() {
   function handleChange(value: string) {
     setCity(value);
   }
+  const columns = [
+    {
+      title: "日期",
+      dataIndex: "date",
+      key: "date",
+    },
+    {
+      title: "风向",
+      dataIndex: "direct",
+      key: "direct",
+    },
+    {
+      title: "温差",
+      dataIndex: "temperature",
+      key: "temperature",
+    },
+    {
+      title: "风级",
+      dataIndex: "x",
+      key: "x",
+      render: (_: any, item: any) => (
+        <div>
+          {item.wid.day}-{item.wid.night}
+        </div>
+      ),
+    },
+  ];
+
+  console.log(data);
+
+  // future
+  if (data?.error_code !== 0) {
+    return <EmptyData tips={data?.reason} />;
+  }
+
   return (
-    <div>
-      {data && <p>{JSON.stringify(data)}</p>}
+    <div className="h_100" style={{ padding: 12 }}>
       {loading && <b>加载中.....</b>}
-      <Select
-        defaultValue="成都"
-        style={{ width: 120 }}
-        onChange={handleChange}
-        options={[
-          {
-            value: "成都",
-            label: "成都",
-          },
-          {
-            value: "北京",
-            label: "北京",
-          },
-          {
-            value: "广州",
-            label: "广州",
-          },
-        ]}
-      />
+      {!loading && data && (
+        <Table
+          title={() => (
+            <Select
+              defaultValue="成都"
+              style={{ width: 120 }}
+              onChange={handleChange}
+              options={[
+                {
+                  value: "成都",
+                  label: "成都",
+                },
+                {
+                  value: "北京",
+                  label: "北京",
+                },
+                {
+                  value: "广州",
+                  label: "广州",
+                },
+              ]}
+            />
+          )}
+          dataSource={data.result.future}
+          columns={columns}
+          pagination={false}
+          showHeader
+        />
+      )}
     </div>
   );
 }

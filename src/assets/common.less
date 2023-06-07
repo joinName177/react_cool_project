@@ -26,6 +26,32 @@ body {
   #root {
     height: 100%;
     overflow: hidden;
+
+    .compont_pdf_container{
+      position: relative;
+      transition: all ease .3s;
+      overflow: hidden;
+      .compont_pdf_header{
+        position: absolute;
+        right: -126px;
+        top: 12px;
+        display: flex;
+        flex-direction: column;
+        background-color: #d9d9d9;
+        padding: 6px;
+        border-radius: 6px 0 0 6px;
+        box-shadow: 1px 1px 10px 2px #6b6e6e;
+        transition: all ease .3s;
+        z-index: 999;
+      }
+      &:hover{
+        transition: all ease .3s;
+        .compont_pdf_header{
+          right: 0;
+          transition: all ease .3s;
+        }
+      }
+    }
   }
 
 

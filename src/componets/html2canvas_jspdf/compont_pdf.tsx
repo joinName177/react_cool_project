@@ -2,10 +2,10 @@ import { Button, Modal } from "antd";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import React, { useRef } from "react";
-
+import { DownloadOutlined, FileSearchOutlined } from "@ant-design/icons";
 interface CompontPdfProps {
   children: HTMLElement | Element | any;
-  title?: String;
+  title?: string | number;
 }
 export default function CompontPdf({
   children,
@@ -76,24 +76,22 @@ export default function CompontPdf({
       // 生成外链让iframe标签展示
       // return pdf.output('datauristring')
       //  pdf.output('datauri');//直接在当前页面输出预览
-    //   return __convertUrl(pdf.output("datauristring"));
+      //   return __convertUrl(pdf.output("datauristring"));
 
-      const url = await __convertUrl(pdf.output("datauristring"))
+      const url = await __convertUrl(pdf.output("datauristring"));
       Modal.info({
         title: "预览PDF",
         style: { top: 10 },
         width: 1400,
+        okText: "关闭",
         bodyStyle: { height: 698 },
         content: (
           // eslint-disable-next-line jsx-a11y/iframe-has-title
-          <iframe
-            style={{ width: "100%", height: 600 }}
-            src={url}
-          ></iframe>
+          <iframe style={{ width: "100%", height: 600 }} src={url}></iframe>
         ),
         onOk() {},
       });
-      return
+      return;
     }
     //导出下载
     await pdf.save(`${title}.pdf`);
@@ -124,14 +122,27 @@ export default function CompontPdf({
   return (
     <div className="compont_pdf_container h_100">
       <div className="compont_pdf_header">
-        <Button size="small" type="primary" onClick={() => handelExportPdf()}>
+        <Button
+          style={{ marginBottom: 8 }}
+          icon={<DownloadOutlined />}
+          size="middle"
+          ghost
+          onClick={() => handelExportPdf()}
+        >
           导出PDF
         </Button>
-        <Button size="small" type="primary" onClick={() => handelExportPdf(true)}>
+        <Button
+          icon={<FileSearchOutlined />}
+          size="middle"
+          ghost
+          onClick={() => handelExportPdf(true)}
+        >
           预览PDF
         </Button>
       </div>
-      <div ref={pdfDomRef}>{children}</div>
+      <div ref={pdfDomRef} className="h_100">
+        {children}
+      </div>
     </div>
   );
 }

@@ -45,11 +45,11 @@ const MainPage = (props: any) => {
   const [collapsed, { toggle }] = useToggle(true);
   const [open, { toggle: openToggle }] = useToggle(false);
   const [selectKey, setSelectKey] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const pdfRef = useRef(null);
 
   useMount(() => {
-    navigate("/root/home");
+    // navigate("/root/home");
   });
   return (
     <div className="home_wolf h_100 flex flow" ref={pdfRef}>
