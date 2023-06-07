@@ -31,7 +31,7 @@ export default function CompontPdf({
     const pageHeight = (contentWidth / 592.28) * 841.89;
     //未生成pdf的html页面高度
     let leftHeight = contentHeight;
-    console.log("leftHeight", leftHeight);
+    // console.log("leftHeight", leftHeight);s
     //页面偏移
     let position = 0;
     //a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高

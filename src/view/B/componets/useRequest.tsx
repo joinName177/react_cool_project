@@ -27,7 +27,7 @@ function getUsername(): Promise<string> {
 }
 
 function getName(id: number): Promise<string> {
-  console.log("参数use-request-refresh-id", id);
+  // console.log("参数use-request-refresh-id", id);
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Mock.mock("@name"));
@@ -93,7 +93,7 @@ function userSchool(id: string) {
 }
 
 async function getEmail(search?: string): Promise<string[]> {
-  console.log("debounce getEmail", search);
+  // console.log("debounce getEmail", search);
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(Mock.mock({ "data|5": ["@email"] }).data);

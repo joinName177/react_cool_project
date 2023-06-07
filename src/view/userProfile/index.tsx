@@ -43,7 +43,7 @@ function UserProfile({ loginUserInfo, saveStoreUser }: UserProfileProps) {
       },
     },
   ]);
-  console.log(loginUserInfo);
+  // console.log(loginUserInfo);
   function getProfile() {
     return {
       avatar: loginUserInfo?.profile ? loginUserInfo?.profile : avatarImg,
@@ -53,7 +53,11 @@ function UserProfile({ loginUserInfo, saveStoreUser }: UserProfileProps) {
   const { avatar, name } = getProfile();
 
   useMount(() => {
-    console.log("____________________--*&(*", loginUserInfo?.isManager === 2);
+    // console.log("____________________--*&(*", loginUserInfo?.isManager === 2);
+    if(!loginUserInfo?.userId){
+      //重定向到401页面
+      navigate("/p_401");
+    }
     if (loginUserInfo?.isManager === 2) {
       setItems([
         {
@@ -61,7 +65,6 @@ function UserProfile({ loginUserInfo, saveStoreUser }: UserProfileProps) {
           key: "0",
           icon: <TeamOutlined />,
           onClick: () => {
-            console.log("成员管理");
             setTrueManage()
           },
         },

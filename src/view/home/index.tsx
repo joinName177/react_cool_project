@@ -4,20 +4,20 @@ import SwiperComp from "componets/swiper/SwiperComp";
 import Barchart from "componets/Echarts/barchart";
 // import { Input, Badge } from "antd";
 import { useMount, useRequest } from "ahooks";
-import { RSA_JM } from "utils/utils";
-import { Avatar, Badge, Card, List, Skeleton, Space } from "antd";
+// import { RSA_JM } from "utils/utils";
+import { Avatar, Badge,Skeleton, Space } from "antd";
 import { get } from "utils/service";
 import { TagsOutlined } from "@ant-design/icons";
 import EmptyData from "componets/emptyData";
 // import GaugeClockk from "componets/Echarts/gaugeClockk";
 export default function Home() {
   useMount(() => {
-    const testKey =
-      "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMcSD7J4dc1H4MT8C1zEt9Bhr9VYxnJt8oIRGO0i9jjDqM13M7sNnKZxddIryTkRezeM1ySZpQ";
-    const str1 = RSA_JM("test01", true, testKey);
-    console.log("加密数据为", str1);
-    const str2 = RSA_JM(str1, false, testKey);
-    console.log("解密数据为", str2);
+    // const testKey =
+    //   "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMcSD7J4dc1H4MT8C1zEt9Bhr9VYxnJt8oIRGO0i9jjDqM13M7sNnKZxddIryTkRezeM1ySZpQ";
+    // const str1 = RSA_JM("test01", true, testKey);
+    // console.log("加密数据为", str1);
+    // const str2 = RSA_JM(str1, false, testKey);
+    // console.log("解密数据为", str2);
   });
   return (
     <div className="home_module h_100">
@@ -132,7 +132,7 @@ const ArticleNew = () => {
   // useMount(() => {
   //   //请求news数据
   // });
-  console.log(data)
+  // console.log(data)
   if(data?.error_code !==0){
     const tips:any = data?.reason
     return <EmptyData tips={tips}/>

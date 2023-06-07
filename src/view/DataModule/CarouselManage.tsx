@@ -34,9 +34,9 @@ export default function CarouselManage() {
         placement="left"
         updateFormFied={(imgUrls) => {
           setFalse();
-          console.log(imgUrls);
+          // console.log(imgUrls);
           addCarousel(imgUrls).then((res) => {
-            console.log(res);
+            // console.log(res);
           });
         }}
       />

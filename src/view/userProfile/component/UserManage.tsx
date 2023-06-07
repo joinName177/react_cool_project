@@ -44,7 +44,6 @@ export default function UserManage({
   //查询成员账户信息
   useMount(() => {
     queryUsers().then((data: any) => {
-      console.log(data);
       const newData = data.map((item: UserItem) => {
         return {
           ...item,
@@ -82,7 +81,6 @@ export default function UserManage({
           ...item,
           ...row,
         });
-        console.log("row", row);
         const birthDay: any = row.birthDay;
         updateUsre({
           ...row,

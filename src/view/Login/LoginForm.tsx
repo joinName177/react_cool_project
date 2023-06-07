@@ -29,13 +29,11 @@ function LoginForm({ setFalse, saveStoreUser }: LoginFormProps) {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const onFinish = (values: any) => {
-    console.log(values);
     findUser({ userName: values.userName }).then((data: any) => {
       if (!data) {
         return message.error("账号未注册！无法登录。");
       }
       //校验密码
-      console.log(data);
       if (data.password === values.password) {
         //将登录用户信息存入store
         saveStoreUser && saveStoreUser(data)

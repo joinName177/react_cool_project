@@ -249,19 +249,19 @@ function UsePagination() {
     });
   }
   const userList = (current: number, pageSize: number) => {
-    const arr = Mock.mock({
-      total: 55,
-      [`list|${pageSize}`]: [
-        {
-          id: "@guid",
-          name: "@name",
-          "gender|1": ["male", "female"],
-          email: "@email",
-          disabled: false,
-        },
-      ],
-    });
-    console.log(arr);
+    // const arr = Mock.mock({
+    //   total: 55,
+    //   [`list|${pageSize}`]: [
+    //     {
+    //       id: "@guid",
+    //       name: "@name",
+    //       "gender|1": ["male", "female"],
+    //       email: "@email",
+    //       disabled: false,
+    //     },
+    //   ],
+    // });
+    // console.log(arr);
     return Mock.mock({
       total: 55,
       [`list|${pageSize}`]: [
@@ -367,7 +367,6 @@ function UseDynamicList() {
           form
             .validateFields()
             .then((val) => {
-              console.log(val);
               const sortedResult = sortList(val.names);
               setResult(JSON.stringify(sortedResult, null, 2));
             })
@@ -485,7 +484,6 @@ function DragUseDynamicList() {
           form
             .validateFields()
             .then((val) => {
-              console.log(val, val.params);
               const sortedResult = sortList(val.params);
               setResult(JSON.stringify(sortedResult, null, 2));
             })
@@ -627,7 +625,7 @@ function UseMount() {
 }
 
 const MyComponent = () => {
-  const unmountedRef = useUnmountedRef();
+  // const unmountedRef = useUnmountedRef();
   useMount(() => {
     message.info("useMount组件首次渲染时，执行方法");
   });
@@ -636,7 +634,7 @@ const MyComponent = () => {
   });
 
   useEffect(() => {
-    console.log(unmountedRef);
+    // console.log(unmountedRef);
   }, []);
 
   return <div>Hello World</div>;

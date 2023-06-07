@@ -14,10 +14,8 @@ interface RegProps {
 export default function RegisterForm({ setTrue }: RegProps) {
   const [form] = Form.useForm();
   const onFinish = (values: any) => {
-    console.log(values);
     //校验账号是否已被注册
     findUser({ userName: values.userName }).then((data) => {
-      console.log(data);
       if (data) {
         return message.error("账号已被注册！请重新输入。");
       }
@@ -32,7 +30,6 @@ export default function RegisterForm({ setTrue }: RegProps) {
         birthDay:"",
       };
       addUser(_params_).then((res: any) => {
-        console.log(res);
         if (res.code === 200) {
           message.success("注册成功!");
           //跳转到登录界面

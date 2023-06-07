@@ -4,7 +4,7 @@
 const initState = {
   count: 0,
   loginUserInfo:
-    sessionStorage.getItem("userInfo") !== null
+    !!sessionStorage.getItem("userInfo")
       ? JSON.parse(`${sessionStorage.getItem("userInfo")}`)
       : {
           userId: "",
@@ -21,7 +21,7 @@ const initState = {
 // 函数需要传递两个参数：state,action
 // @ts-ignore
 const rootReducer = (state = initState, action) => {
-  console.log("reducer:", state, action);
+  // console.log("reducer:", state, action);
   // 根据aciton中的type字段判断是否为发送过来的action，如果是则返回一个新的state
   switch (action.type) {
     case "ADD_ACTION":
@@ -43,7 +43,7 @@ const rootReducer = (state = initState, action) => {
         birthDay: action.data.birthDay,
       };
       sessionStorage.setItem("userInfo", JSON.stringify(_data_));
-      console.log("_____登录用户信息______", _data_);
+      // console.log("_____登录用户信息______", _data_);
       return {
         ...state,
         loginUserInfo: _data_,

@@ -56,7 +56,6 @@ export default function Individual({
     });
   };
   useMount(() => {
-    console.log(msg);
     setImgUrl(msg.profile);
     form.setFieldsValue({
       userName: msg.userName,

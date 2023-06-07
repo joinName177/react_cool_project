@@ -4,13 +4,12 @@ import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "./home.less";
 import { useMount, useToggle } from "ahooks";
 import $c from "classnames";
-import { Button, MenuProps, Modal } from "antd";
+import {  MenuProps } from "antd";
 import { Dropdown } from "antd";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
 import Breadcrumbsd from "view/Breadcrumb";
 import UserProfile from "view/userProfile";
 import { connect } from "react-redux";
-import { exportPDF } from "componets/html2canvas_jspdf/export_pdf";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -61,43 +60,6 @@ const MainPage = (props: any) => {
               <span className="fj_icon"></span>TRAVELER
             </span>
             <UserProfile />
-            <Button
-              type="primary"
-              onClick={async () => {
-                exportPDF({
-                  title: "主页",
-                  ele: pdfRef.current,
-                });
-              }}
-            >
-              导出为pdf
-            </Button>
-            <Button
-              type="primary"
-              onClick={async () => {
-                const url = await exportPDF({
-                  title: "p",
-                  ele: pdfRef.current,
-                  preview: true,
-                });
-                Modal.info({
-                  title: "This is a notification message",
-                  style: { top: 10 },
-                  width: 1400,
-                  bodyStyle: { height: 698 },
-                  content: (
-                    // eslint-disable-next-line jsx-a11y/iframe-has-title
-                    <iframe
-                      style={{ width: "100%", height: 600 }}
-                      src={url}
-                    ></iframe>
-                  ),
-                  onOk() {},
-                });
-              }}
-            >
-              预览pdf
-            </Button>
           </span>
         </div>
       </header>
@@ -191,7 +153,6 @@ const mapDispatchToProps = (dispatch: any) => {
   // 需要返回一个对象
   return {
     updateCollapsed: (timeStr: boolean) => {
-      console.log("本地换缓存的状态", timeStr);
       dispatch({
         type: "COLLAPSED",
         data: timeStr,

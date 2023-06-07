@@ -23,7 +23,7 @@ export default function Breadcrumbsd({
 
   //初始化时对菜单列表进行处理
   useMount(() => {
-    console.log('XXXXXXXXXXXXXX',routerPaths)
+    // console.log('XXXXXXXXXXXXXX',routerPaths)
     setbreadcrumbNameMap(menuKeyAndLaber(routerPaths));
   });
 
@@ -31,7 +31,7 @@ export default function Breadcrumbsd({
   const extraBreadcrumbItems = pathSnippets.map((_, index) => {
     // 根据路由数组循环遍历
     const url: any = `/${pathSnippets.slice(0, index + 1).join("/")}`;
-    console.log(url);
+    // console.log(url);
     updateSelect(url);
     if(url ==="/root"){
       return ""

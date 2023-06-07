@@ -2,7 +2,7 @@ import React from "react";
 import { useRoutes } from "react-router-dom";
 //V6文档
 // https://blog.csdn.net/weixin_47431743/article/details/124284878
-import MainPage from '../main'
+import MainPage from "../main";
 import Hotel from "view/hotel";
 import Home from "view/home";
 import B from "view/B";
@@ -14,7 +14,7 @@ import G from "view/G";
 import DataManage from "view/DataModule/DataManage";
 import CarRental from "view/CarRental";
 import Login from "view/Login";
-
+import P401 from "view/P_401";
 //动态路由
 const Getrouters = () => {
   return useRoutes([
@@ -25,6 +25,10 @@ const Getrouters = () => {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/p_401",
+      element: <P401 />,
     },
     {
       path: "/root",
