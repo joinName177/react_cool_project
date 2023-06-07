@@ -131,14 +131,24 @@
             &:nth-child(2){
                 width: calc(100% - 536px);
                 background-color: white;
-                padding: 12px;
+                padding: 12px 0 12px 12px;
 
                 .article_new_wrap{
                     height: 282px;
                     overflow: auto;
                     .article_new_item{
-                        background-color: #697b8c;
-                        margin-bottom: 2px;
+                        padding: 5px 12px 5px 0;
+                        cursor: pointer;
+                        border-bottom: 1px solid rgb(242 239 239 / 50%);
+                        &:last-child{
+                            border-bottom: none;
+                        }
+
+                        &:hover{
+                            .text-msg{
+                                color: red;
+                            }
+                        }
                     }
                 }
             }

@@ -8,8 +8,8 @@ import { RSA_JM } from "utils/utils";
 import { Avatar, Badge, Card, List, Skeleton, Space } from "antd";
 import { get } from "utils/service";
 import { TagsOutlined } from "@ant-design/icons";
+import EmptyData from "componets/emptyData";
 // import GaugeClockk from "componets/Echarts/gaugeClockk";
-const { Meta } = Card;
 export default function Home() {
   useMount(() => {
     const testKey =
@@ -132,6 +132,11 @@ const ArticleNew = () => {
   // useMount(() => {
   //   //请求news数据
   // });
+  console.log(data)
+  if(data?.error_code !==0){
+    const tips:any = data?.reason
+    return <EmptyData tips={tips}/>
+  }
   return (
     <div className="article_new_wrap">
       {loading
@@ -147,7 +152,10 @@ const ArticleNew = () => {
               ></Skeleton>
             ))
         : data?.result.newslist.map(
-            ({ title, id, picUrl, description, url }: newIyem, index) => (
+            (
+              { title, id, picUrl, description, url, source }: newIyem,
+              index
+            ) => (
               <div
                 key={index}
                 className="article_new_item flex"
@@ -155,15 +163,18 @@ const ArticleNew = () => {
                   window.open(url);
                 }}
               >
-                <div>
+                <div style={{ marginRight: 8 }}>
                   <Avatar shape="square" src={picUrl} />
                 </div>
-                <div>
-                  <span className="text-ellipsis">
-                    <TagsOutlined />
-                    {title}
-                  </span>
-                  <span className="text-more-ellipsis">{description}</span>
+                <div style={{width:'100%'}}>
+                  <div className="flex between">
+                    <span className="text-ellipsis">
+                      <TagsOutlined />
+                      <span style={{ color: "#545657" }}>{title}</span>
+                    </span>
+                    <span>来源：{source}</span>
+                  </div>
+                  <span className="text-more-ellipsis text-msg">{description}</span>
                 </div>
               </div>
             )

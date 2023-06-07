@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { get, post } from "../../utils/service";
 import { useMount, useRequest } from "ahooks";
-import { Select } from "antd";
+import { Image, Select } from "antd";
+import CompontPdf from "componets/html2canvas_jspdf/compont_pdf";
+
+export default function D() {
+  return <CompontPdf>
+    
+  </CompontPdf>;
+}
 
 async function getWather(city: string): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -14,7 +21,7 @@ async function getWather(city: string): Promise<string> {
   });
 }
 
-export default function D() {
+function DF() {
   const [city, setCity] = useState("成都");
   const { data, loading } = useRequest(() => getWather(city), {
     refreshDeps: [city],
