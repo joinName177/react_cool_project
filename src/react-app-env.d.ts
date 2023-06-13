@@ -75,3 +75,4 @@ declare module '*.module.less' {
   export default classes;
 }
 declare module '*.less'
+declare module 'watermark-component-for-react'

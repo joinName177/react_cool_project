@@ -1,7 +1,13 @@
-import { Button, Drawer, Image } from "antd";
-import React, { forwardRef, useEffect, useState } from "react";
+import { Button, Drawer, Image, message } from "antd";
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from "react";
 import { queryAttachment } from "utils/interface";
 import { CheckCircleOutlined } from "@ant-design/icons";
+import { useMount, useUnmount } from "ahooks";
 /**
  * 图片modal组件
  * @param {*} param0
@@ -29,7 +35,7 @@ const ImageModal = forwardRef(
   ) => {
     const [images, setImages] = useState([]);
     const [selectItem, setSelectItem] = useState<any>({});
-    const [selectItems, setSelectItems] = useState([]);
+    const [selectItems, setSelectItems] = useState<any>([]);
     //查询附件信息
     useEffect(() => {
       if (!!visible) {
@@ -38,6 +44,22 @@ const ImageModal = forwardRef(
         });
       }
     }, [visible]);
+
+    useImperativeHandle(_ref, () => ({
+      handle: (list: Array<any>) => {
+        emptyState()
+        //如果list不为空，则选中对应的图片
+        if(list.length>0){
+          setSelectItems(list)
+        }
+      },
+    }));
+
+    const emptyState = () => {
+      setImages([]);
+      setSelectItem({});
+      setSelectItems([]);
+    };
 
     const isActive = (uid: number) => {
       if (isRadio) {

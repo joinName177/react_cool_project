@@ -1,7 +1,8 @@
+import React, { useRef } from "react";
 import { Button, Modal } from "antd";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import React, { useRef } from "react";
+
 import { DownloadOutlined, FileSearchOutlined } from "@ant-design/icons";
 interface CompontPdfProps {
   children: HTMLElement | Element | any;
@@ -120,13 +121,13 @@ export default function CompontPdf({
   };
 
   return (
-    <div className="compont_pdf_container h_100">
+    <div className="compont_pdf_container">
       <div className="compont_pdf_header">
         <Button
           style={{ marginBottom: 8 }}
           icon={<DownloadOutlined />}
           size="middle"
-          ghost
+          // ghost
           onClick={() => handelExportPdf()}
         >
           导出PDF
@@ -134,7 +135,7 @@ export default function CompontPdf({
         <Button
           icon={<FileSearchOutlined />}
           size="middle"
-          ghost
+          // ghost
           onClick={() => handelExportPdf(true)}
         >
           预览PDF

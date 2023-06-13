@@ -197,23 +197,17 @@ app.post("/updateUsre", jsonParser, (req, res) => {
 // Carousel轮播
 app.post("/addCarousel", jsonParser, (req, res) => {
   const body = req.body;
-  const carouselList = body.list;
-  console.log('___________________carr',carouselList)
-  carouselList.map((item) => {
-    //实例化数据对象
-    const x = new CarouselModal({
-      uid: item.uid,
-      url: item.url,
+  const x = new CarouselModal({
+      uid: body.uid,
+      url: body.url,
     });
-    //保存数据
-    x.save(function (err, _resp) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('增加数据成功....')
-        res.send({ code: 200, data: body });
-      }
-    });
+    x.save(function (err, resp) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send({ code: 200, data: body });
+      console.log("附件数据写入成功！！！");
+    }
   });
 });
 
@@ -224,6 +218,22 @@ app.post("/queryCarousel", jsonParser, (_req, res) => {
     } else {
       res.send(resp);
     }
+  });
+});
+
+app.post("/deleteCarousel", jsonParser, (req, res) => {
+  console.log("服务端接收到请求参数______________", req.body);
+  const body = req.body;
+  // 传入的ID不用包装成ObjectID对象
+  CarouselModal.deleteOne({ uid: body.uid }, function (err) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    res.send({
+      code: 200,
+      message: "成功!",
+    });
   });
 });
 

@@ -3,7 +3,7 @@
 .dataManage{
     padding: 0 16px;
     .upload_module{
-        max-height: 200px;
+        max-height: 240px;
         overflow: auto;
         .upload_icon{
             display: block;
@@ -49,14 +49,40 @@
             width: 100px;
             height: 100px;
             border: 1px solid #d9d9d9;
-            // margin-block: 0 8px;
-            // margin-inline: 0 8px;
             box-sizing: border-box;
             vertical-align: top;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 8px;
+            position: relative;
+            .del-icon{
+                position: absolute;
+                top: 7px;
+                right: 7px;
+                font-size: 16px;
+                cursor: pointer;
+                width: 26px;
+                height: 22px;
+                color: #ffffffc9;
+                /* padding-left: 4px; */
+                z-index: 2;
+                // background: rgba(0, 0, 0, 0.45);
+                border-radius: 0 0 0 4px;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                &:hover{
+                    color: white;
+                }
+            }
+
+            &:hover{
+                .del-icon{
+                    display: flex;
+                }
+            }
+           
         }
     }
 }

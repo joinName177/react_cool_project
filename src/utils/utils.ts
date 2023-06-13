@@ -15,7 +15,7 @@ const uuid = () => {
   /**
    * @param data 加密解密数据
    * @param isEncrypt 是否加密
-   * @param key 公钥/私钥key
+   * @param key 公钥/私钥key  //去密钥生成网址去生成公钥和密钥 http://tools.jb51.net/password/rsa_encode
    */
   //测试key MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMcSD7J4dc1H4MT8C1zEt9Bhr9VYxnJt8oIRGO0i9jjDqM13M7sNnKZxddIryTkRezeM1ySZpQ
   const RSA_JM = (data: string, isEncrypt: boolean, key: string)=> {
