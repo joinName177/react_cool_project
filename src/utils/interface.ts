@@ -1,6 +1,7 @@
 //当前模块，API进行统一管理，即对请求接口统一管理
 import axios from "axios";
 import { type } from "os";
+import { UserItem } from "view/userProfile/component/UserManage";
 export const httpPrefix = "http://127.0.0.1:3300";
 
 /**
@@ -64,7 +65,7 @@ const updateUsre = (params:any)=>{
   });
 }
 
-const queryUsers = () => {
+const queryUsers = ():Promise<Array<UserItem>> => {
   return new Promise((resolve) => {
     axios.post(httpPrefix + "/queryUsers").then((res) => {
       resolve(res.data);

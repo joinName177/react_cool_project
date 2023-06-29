@@ -2,14 +2,16 @@ import React, { useRef, useState } from "react";
 import { routerPaths } from "componets/basic_data";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "./home.less";
-import { useMount, useToggle } from "ahooks";
+import { useBoolean, useMount, useToggle } from "ahooks";
 import $c from "classnames";
-import { MenuProps, message } from "antd";
+import { Button, MenuProps, message } from "antd";
 import { Dropdown } from "antd";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
 import Breadcrumbsd from "view/Breadcrumb";
 import UserProfile from "view/userProfile";
 import { connect } from "react-redux";
+import MemberSelect from "componets/userSelect";
+import MemberTreeSelect from "componets/userSelect/memberSelect";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -41,12 +43,17 @@ const items: MenuProps["items"] = [
   },
 ];
 
-const MainPage = (props: any) => {
+const MainPage = (props: any): JSX.Element => {
   const [collapsed, { toggle }] = useToggle(true);
   const [open, { toggle: openToggle }] = useToggle(false);
   const [selectKey, setSelectKey] = useState("");
   // const navigate = useNavigate();
   const pdfRef = useRef(null);
+
+  const [visible, { setFalse, setTrue }] = useBoolean(false);
+
+  const [treeVsible, { setFalse: setTreeFalse, setTrue: setTreeTree }] =
+    useBoolean(false);
 
   useMount(() => {
     // navigate("/root/home");
@@ -57,102 +64,125 @@ const MainPage = (props: any) => {
   };
 
   return (
-      <div className="home_wolf h_100 flex flow" ref={pdfRef}>
-        <header className="flex center">
-          <div className="logo">
-            <span className="flex center between">
-              <span className="flex center ">
-                <span className="fj_icon"></span>TRAVELER
-              </span>
-              <UserProfile />
+    <div>
+      <Button onClick={setTrue}>打开成员选择</Button>
+      <Button onClick={setTreeTree}>打开组织选择</Button>
+      <MemberSelect
+        list={[]}
+        visible={visible}
+        onCancel={setFalse}
+        onSure={() => {
+          setFalse();
+        }}
+      />
+      <MemberTreeSelect
+        list={[]}
+        visible={treeVsible}
+        onCancel={setTreeFalse}
+        onSure={() => {
+          setTreeFalse();
+        }}
+      />
+    </div>
+  );
+
+  return (
+    <div className="home_wolf h_100 flex flow" ref={pdfRef}>
+      <header className="flex center">
+        <div className="logo">
+          <span className="flex center between">
+            <span className="flex center ">
+              <span className="fj_icon"></span>TRAVELER
+            </span>
+            <UserProfile />
+          </span>
+        </div>
+      </header>
+      <div className="my_app_wrap flex">
+        <div className={$c("home_wolf_l", { width54: !collapsed })}>
+          <div
+            className={$c("flex center", {
+              between: collapsed,
+              flexend: !collapsed,
+            })}
+          >
+            {collapsed && (
+              <Breadcrumbsd updateSelect={(key) => setSelectKey(key)} />
+            )}
+            <span
+              onClick={() => {
+                props.updateCollapsed(new Date().getTime());
+                toggle();
+              }}
+              style={{ fontSize: 16, cursor: "pointer", color: "#404588" }}
+            >
+              <MenuUnfoldOutlined rotate={collapsed ? 180 : 0} />
             </span>
           </div>
-        </header>
-        <div className="my_app_wrap flex">
-          <div className={$c("home_wolf_l", { width54: !collapsed })}>
-            <div
-              className={$c("flex center", {
-                between: collapsed,
-                flexend: !collapsed,
-              })}
-            >
-              {collapsed && (
-                <Breadcrumbsd updateSelect={(key) => setSelectKey(key)} />
-              )}
-              <span
-                onClick={() => {
-                  props.updateCollapsed(new Date().getTime());
-                  toggle();
-                }}
-                style={{ fontSize: 16, cursor: "pointer", color: "#404588" }}
-              >
-                <MenuUnfoldOutlined rotate={collapsed ? 180 : 0} />
-              </span>
-            </div>
-            <Dropdown
-              menu={{ items }}
-              trigger={["click"]}
-              placement="bottom"
-              open={open}
-              overlayClassName="homeDropDown"
-              arrow={{ pointAtCenter: true }}
-              onOpenChange={openToggle}
-            >
-              <div className="home_worl_l_c flex center">
-                <div className="flex center">
-                  <span className="theme_icon"></span>
-                  <div
-                    className={$c("theme_msg flex flow", { hide: !collapsed })}
-                  >
-                    <span>自定义主题</span>
-                    <span className="text-ellipsis">简约</span>
-                  </div>
-                </div>
-                <span
-                  className={$c("drop_down_icon", {
-                    open: open,
-                    hide: !collapsed,
-                  })}
-                ></span>
-              </div>
-            </Dropdown>
-
-            <div className="home_worl_l_b">
-              {routerPaths.map((item) => (
-                <NavLink
-                  onClick={() => setSelectKey(item.key)}
-                  to={item.path}
-                  key={item.key}
+          <Dropdown
+            menu={{ items }}
+            trigger={["click"]}
+            placement="bottom"
+            open={open}
+            overlayClassName="homeDropDown"
+            arrow={{ pointAtCenter: true }}
+            onOpenChange={openToggle}
+          >
+            <div className="home_worl_l_c flex center">
+              <div className="flex center">
+                <span className="theme_icon"></span>
+                <div
+                  className={$c("theme_msg flex flow", { hide: !collapsed })}
                 >
-                  <div
-                    className={$c("r_item", {
-                      r_item_active: item.key === selectKey,
+                  <span>自定义主题</span>
+                  <span className="text-ellipsis">简约</span>
+                </div>
+              </div>
+              <span
+                className={$c("drop_down_icon", {
+                  open: open,
+                  hide: !collapsed,
+                })}
+              ></span>
+            </div>
+          </Dropdown>
+
+          <div className="home_worl_l_b">
+            {routerPaths.map((item) => (
+              <NavLink
+                onClick={() => setSelectKey(item.key)}
+                to={item.path}
+                key={item.key}
+              >
+                <div
+                  className={$c("r_item", {
+                    r_item_active: item.key === selectKey,
+                  })}
+                >
+                  <span className={`r_item_icon ${item.icon}`}></span>
+                  <span
+                    className={$c({
+                      hide: !collapsed,
                     })}
                   >
-                    <span className={`r_item_icon ${item.icon}`}></span>
-                    <span
-                      className={$c({
-                        hide: !collapsed,
-                      })}
-                    >
-                      {item.name}
-                    </span>
-                  </div>
-                </NavLink>
-              ))}
-            </div>
+                    {item.name}
+                  </span>
+                </div>
+              </NavLink>
+            ))}
           </div>
-          <div className="home_wolf_r">
-            <div className="my_app_right">
-              <div className="my_app_content h_100">
-                <Outlet />
-              </div>
+        </div>
+        <div className="home_wolf_r">
+          <div className="my_app_right">
+            <div className="my_app_content h_100">
+              <Outlet />
             </div>
           </div>
         </div>
-        {/* 沟通图标 */}
-        <div className="main_chat" onClick={openChatPanel}></div>
       </div>
+      {/* 沟通图标 */}
+      <div className="main_chat" onClick={openChatPanel}></div>
+    </div>
   );
 };
 //创建mapDispatchToProps方法-使用箭头函数实现，最后action会被作为一个props传递给组件

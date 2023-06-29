@@ -1,5 +1,21 @@
 import JSEncrypt from "jsencrypt";
-
+import { useCallback, useState } from "react";
+ const useMergeState = (initialValue:any) => {
+  const [values, setValues] = useState(initialValue);
+  const updateValues = useCallback((newState) => {
+    if (typeof newState !== "object") {
+      return console.warn("values required type is object!");
+    }
+    setValues((prevState:any) => Object.assign({}, prevState, newState));
+  }, []);
+  const forceValues = useCallback(
+    (_values) => {
+      setValues(_values || initialValue);
+    },
+    [initialValue]
+  );
+  return [values, updateValues, forceValues];
+};
 /**
  * 生成UUID
  * @returns
@@ -49,5 +65,6 @@ const uuid = () => {
 export {
     uuid,
     RSA_JM,
-    isJSON
+    isJSON,
+    useMergeState
 }

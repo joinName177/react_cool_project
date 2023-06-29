@@ -20,7 +20,7 @@ interface UserModalProps {
 }
 
 export interface UserItem {
-  userId?: string;
+  userId: string;
   userName: string;
   password: string;
   profile: string;

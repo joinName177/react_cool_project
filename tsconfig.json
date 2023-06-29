@@ -21,6 +21,7 @@
     "downlevelIteration": true,// 降级遍历器实现，如果目标源是es3/5，那么遍历器会有降级的实现
     "noFallthroughCasesInSwitch": true,// 防止switch语句贯穿(即如果没有break语句后面不会执行)
     "baseUrl": "./src" // 解析非相对模块的基地址，默认是当前目录
+    
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "db/schema/schema.js", "server/index.js", "db/db.js"],
   "exclude": ["./node_modules"]

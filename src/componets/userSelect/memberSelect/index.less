@@ -1,0 +1,99 @@
+@import "../../../assets/common.less";
+.member_tree_select{
+    .ant-modal-content{
+        padding: 8px;
+        border: 1px solid #6b6f6f;
+    }
+    .ant-modal-body{
+        .member_content{
+        display: flex;
+        .member_l{
+            width: 312px;
+            background-color: rgba(246,246,247);
+            .ant-tree{
+                background:none;
+            }
+        }
+        .member_r{
+            flex: 1;
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+           
+            .member_r_header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px 0px 10px 0;
+                span{
+                    &:first-child{
+                        font-weight: 700;
+                    }
+                    &:last-child{
+                        display: inline-block;
+                        width: 26px;
+                        height: 26px;
+                       
+                        border-radius: 4px;
+                        position: relative;
+                        &:hover{
+                            background-color: rgba(243,243,244);
+                        }
+                        &::before{
+                            content: '';
+                            width: 20px;
+                            height: 20px;
+                            background: url(../../../assets/images/close.svg) no-repeat;
+                            background-size: 20px;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            margin: auto;
+                        }
+                    }
+                }
+            }
+            .member_r_content{
+                // background-color: antiquewhite;
+                flex: 1;
+                max-height: 452px;
+                overflow: auto;
+            }
+            .member_r_footer{
+                
+                display: flex;
+                justify-content: space-between;
+                padding: 12px 0 16px 0;
+                span{
+                    display: inline-block;
+                    cursor: pointer;
+                    width: 125px;
+                    height: 32px;
+                    background-color: rgba(38,126,240);
+                    color: #ffffff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 2px;
+                    &:first-child{
+                        margin-right: 12px;
+                        &:hover{
+                            background-color: rgba(75,149,243);
+                        }
+                    }
+                    &:last-child{
+                        background-color: rgba(243,243,244);
+                        color:rgb(0, 0, 47);
+                        &:hover{
+                            background-color: rgba(219,220,222);
+                        }
+                    }
+                }
+            }
+        }
+    }
+ }
+ 
+}
