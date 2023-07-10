@@ -1,4 +1,4 @@
-export const TreeData = [
+export const TreeData2 = [
   {
     id: "296f9c1569ee4be3bcf83b431686ecdf",
     name: "需求分配测试",
@@ -65821,3 +65821,93 @@ export const TreeData = [
     canHide: 0,
   },
 ];
+
+export const TreeData = [{
+  type: 2, //2是企业
+  id: 2783,
+  key:2783,
+  name: "方法",
+  hasChild: 1,
+  children: [
+    {
+      type: 3,
+      id: 2784,
+      key:2784,
+      name: "初始化部门",
+      hasChild: 1,
+      parentId: 2783,
+      children: [
+        {
+          type: 0,
+          id: 8241,
+          key:8241,
+          profile: "http://127.0.0.1:3300/public/uploads/1686552434700_1681093311462_9.jpg",
+          name: "小龙",
+          hasChild: 0,
+          parentId: 2784,
+          children: [],
+          roleId: 8452,
+          roleName: "岗位",
+        },
+        {
+            type: 0,
+            id: 8242,
+            key:8242,
+            profile: "http://127.0.0.1:3300/public/uploads/1686552434705_1681093311467_14.jpg",
+            name: "小张",
+            hasChild: 0,
+            parentId: 2784,
+            children: [],
+            roleId: 8452,
+            roleName: "岗位",
+          },
+          {
+            type: 0,
+            id: 8243,
+            key:8243,
+            profile: "http://127.0.0.1:3300/public/uploads/1686552434708_1681093311475_21.jpg",
+            name: "小李",
+            hasChild: 0,
+            parentId: 2784,
+            children: [],
+            roleId: 8452,
+            roleName: "岗位",
+          },
+          {
+            type: 0,
+            id: 8244,
+            key:8244,
+            profile: "http://127.0.0.1:3300/public/uploads/1686552434710_1681093311473_16.jpg",
+            name: "小王",
+            hasChild: 0,
+            parentId: 2784,
+            children: [],
+            roleId: 8452,
+            roleName: "岗位",
+          },
+      ],
+    },
+    {
+      type: 3, //3是部门
+      id: 2860,
+      key:2860,
+      name: "部门",
+      hasChild: 1,
+      parentId: 2783,
+      children: [
+        {
+          type: 0, //0是人员
+          id: 5387,
+          key:5387,
+          name: "陈倪浩",
+          profile: "",
+          hasChild: 0,
+          parentId: 2860,
+          children: [],
+          roleId: 8583,
+          roleName: "岗位",
+        },
+      ],
+    },
+  ],
+}];

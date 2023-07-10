@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>SYSWARE</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    var isSmallIe = false;//低版本IE
+    var isLargeIe = false;//高版本IE
+    //校验是否为IE浏览器
+    function checkISIE() {
+        var userAgent = navigator.userAgent;
+        isSmallIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+        isLargeIe = (userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11") > -1) || "ActiveXObject" in window;
+        if (isSmallIe || isLargeIe) {
+            return true
+        }
+        return false
+    }
+    //获取浏览器参数
+    function getUrlParams(URL) {
+        if (URL.indexOf('?') === -1) {
+            return {}
+        }
+        var paramStr = URL.split('?')[1];
+        var paramObj = {};
+        var paramArr = paramStr.split('&');
+        for (var i = 0; i < paramArr.length; i++) {
+            var arrNew = paramArr[i].split('=');
+            paramObj[arrNew[0]] = arrNew[1];
+        }
+        return paramObj
+    }
+
+    (function () {
+        var browserUrl = window.location.href;
+        var urlParam = getUrlParams(browserUrl);
+        var username = urlParam.username;
+        if (!username) {
+            alert('用户不存在！请联系管理员');
+            return false
+        }
+        //跳转URL
+        var jumpUrl = "http://192.104.225.22:8055" + "/loginSingle.html?username" + username;
+        var iEBrowser = checkISIE();
+        if (!iEBrowser) {
+            window.location.replace(jumpUrl);
+            return false
+        }
+        jumpUrl = jumpUrl.toString().replace(/\&/g, '\^\&');
+        var objShell = new ActiveXObject("WScript.Shell");
+        
+        if (isLargeIe) {//高版本ie（11以上）
+
+        } else {//低版本ie（11以下）
+
+        }
+    }())
+
+</script>
+
+</html>

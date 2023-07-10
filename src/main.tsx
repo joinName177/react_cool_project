@@ -12,6 +12,7 @@ import UserProfile from "view/userProfile";
 import { connect } from "react-redux";
 import MemberSelect from "componets/userSelect";
 import MemberTreeSelect from "componets/userSelect/memberSelect";
+import ReactResizable from "componets/reactResizable/reactResizable";
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -62,7 +63,7 @@ const MainPage = (props: any): JSX.Element => {
   const openChatPanel = () => {
     message.success("研发中..........");
   };
-
+  return <ReactResizable/>
   return (
     <div>
       <Button onClick={setTrue}>打开成员选择</Button>
