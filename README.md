@@ -70,45 +70,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-支付宝
-
-2019/1/1 - 2020/1/1     苹果转给我  5000+5000+5000+5000+1000+10000+1600+2000  合计+34600
-                        我转给苹果  2600+5000+5000+5000+10000+5000+2000+1000  合计-35600
-2021/1/1 - 2022/1/1     苹果转给我  2600                                      合计+2600
-
-支付宝合计 35600-34600 = 1000------ （2600-1000 = 我支付宝欠苹果 1600 元）
-
-微信
-2017年全年          苹果转给我 500
-2019年全年          苹果转给我 4000+1300+300+4000+2000+600+200+200+900+10000   合计+23500
-                    我转给苹果 1200+500+320+320                                合计-2340
-2021年全年          苹果转给我 1000+2000                                       合计 +3000
-                    我转给苹果 2000+1000+950+1000+200                          合计 -5150
-2022年全年          我转给苹果  249                                             合计 -249
-
           
 
 
