@@ -1,14 +1,14 @@
 @import "./assets/common.less";
 .home_wolf{
-    font-size: 13px;
+    font-size: 14px;
     position: relative;
     header{
         height: 60px;
         padding: 0 12px;
         .logo{
             width: 100%;
-            color: #404588;
-            font-weight: bold;
+            color: #7d7d82;
+            // font-weight: bold;
             .fj_icon{
                 width: 22px;
                 height: 22px;
@@ -25,74 +25,18 @@
         }
     }
     .my_app_wrap{
-        flex: 1;
+        // flex: 1;
+        height: calc(100% - 60px);
         box-shadow: inset 0px 15px 10px -15px rgba(0, 0, 0, 0.3);
         .home_wolf_l{
             width: 278px;
-            padding: 12px;
+            padding: 12px 0 0 0;
+            transition: all ease .3s;
             // transition-duration: 0.3s;
             position: relative;
             box-shadow: 15px 0 15px -15px rgba(0, 0, 0, 0.3), -15px 0 15px -15px white;
-            .home_worl_l_c{
-                border: 1px solid #dfe1e4;
-                padding: 6px 18px 6px 8px;
-                border-radius: 6px;
-               
-                justify-content: space-between;
-                margin: 8px 0 24px 0;
-                cursor: pointer;
-                .theme_icon{
-                    width: 34px;
-                    height: 34px;
-                    border-radius: 10px;
-                    background-color: #2d337ce8;
-                    display: block;
-                    position: relative;
-                    margin-right: 8px;
-                    &::after{
-                        content: "";
-                        width: 22px;
-                        height: 22px;
-                        background: url(./assets/images/主题.png) no-repeat;
-                        background-size: 22px;
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        -webkit-transform: translate(-50%,-50%);
-                        -moz-transform: translate(-50%,-50%);
-                        transform:translate(-50%,-50%);
-                    }
-                }
-                .theme_msg{
-                    font-weight: bold;
-                    &>span{
-                        &:nth-child(1){
-                            color: #545657;
-                        }
-                        &:nth-child(2){
-                            background-color: #1bd8cc;
-                            color: #ffffff;
-                            padding: 1px 6px;
-                            border-radius: 5px;
-                            max-width: 66px;
-                        }
-                    }
-                }
-                .drop_down_icon{
-                    display: block;
-                    width: 14px;
-                    height: 14px;
-                    background: url(./assets/images/下拉.png) no-repeat;
-                    background-size: 14px;
-                    transition: all ease .3s;
-                    &.open{
-                        transform: rotate(180deg);
-                        transition: all ease .3s;
-                    }
-                }
-            }
             .home_worl_l_b{
-                font-weight: bold;
+                // font-weight: bold;
                 &>a{
                     text-decoration: none;
                 }
@@ -100,7 +44,7 @@
                     
                     padding: 12px;
                     margin-bottom: 2px;
-                    border-radius: 10px;
+                    // border-radius: 10px;
                     color: #868798e8;
                     display: flex;
                     align-items: center;
@@ -146,6 +90,10 @@
                             }
                         }
                     }
+
+                    &.smallItem{
+                        justify-content: center;
+                    }
                     .r_item_icon{
                         width: 20px;
                         height: 20px;
@@ -183,11 +131,17 @@
                             background: url(./assets/images/电动汽车.png) no-repeat;
                             background-size: 22px;
                         }
+
+
+                        &.r_item_icon_small{
+                            margin-right: 0;
+                        }
                     }
                 }
             }
             &.width54{
                 width: 54px;
+                transition: all ease .3s;
             }
         }
     }

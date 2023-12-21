@@ -1,7 +1,10 @@
 /**
+ * MongoDB 安装教程 https://zhuanlan.zhihu.com/p/621780613
+ * MongoDB Compass可视化工具的安装及使用图文说明 https://blog.csdn.net/sunshineGGB/article/details/122477159
  * 定义数据库admin user表模型
  * 参考资料1：https://blog.csdn.net/weixin_40629244/article/details/104906844
  * 参考资料2：https://www.gxlcms.com/JavaScript-60745.html
+ * 参考资料3：数据库链接资料https://zhuanlan.zhihu.com/p/604719050
  * >定义 Schema<
  * 数据库中的 Schema，为数据库对象的集合，Schema 是 Mongoose 里使用的一种数据模式，
  *  可以理解为表结构的定义，每个 Schema 会映射到 Mongodb 中的一个 Collection，它不具备操作数据库的能力。
@@ -19,6 +22,8 @@
  *  传入三个参数时，前两个参数意思一样，第三个参数为所要操作的集合名称。
  *  如下面的定义的模型名称叫User，会操作所在数据库中的 info 这个集合
  */
+
+
 
 const mongoose = require("../db");
 const Schema = mongoose.Schema;

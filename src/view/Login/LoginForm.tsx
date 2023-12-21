@@ -29,6 +29,7 @@ function LoginForm({ setFalse, saveStoreUser }: LoginFormProps) {
   const [form] = Form.useForm();
   const navigate = useNavigate();
   const onFinish = (values: any) => {
+    //进入主页
     findUser({ userName: values.userName }).then((data: any) => {
       if (!data) {
         return message.error("账号未注册！无法登录。");

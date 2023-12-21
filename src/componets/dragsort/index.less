@@ -1,0 +1,29 @@
+.list {
+    .item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+      width: 100px;
+      color: white;
+      font-weight: 600;
+    }
+    .large{
+        width: 200px;
+    }
+    .focus {
+      cursor: pointer;
+    }
+    .item:hover {
+      transition-duration: 0.3s;
+      transform: scale(1.05);
+    }
+    .active {
+      cursor: pointer !important;
+    }
+    .enter {
+      cursor: pointer !important;
+      opacity: 0.3;
+      box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.1) inset;
+    }
+  }

@@ -13,6 +13,7 @@ import { connect } from "react-redux";
 import MemberSelect from "componets/userSelect";
 import MemberTreeSelect from "componets/userSelect/memberSelect";
 import ReactResizable from "componets/reactResizable/reactResizable";
+import DragSort from "componets/dragsort/index"
 const items: MenuProps["items"] = [
   {
     key: "1",
@@ -63,29 +64,34 @@ const MainPage = (props: any): JSX.Element => {
   const openChatPanel = () => {
     message.success("研发中..........");
   };
-  return <ReactResizable/>
-  return (
-    <div>
-      <Button onClick={setTrue}>打开成员选择</Button>
-      <Button onClick={setTreeTree}>打开组织选择</Button>
-      <MemberSelect
-        list={[]}
-        visible={visible}
-        onCancel={setFalse}
-        onSure={() => {
-          setFalse();
-        }}
-      />
-      <MemberTreeSelect
-        list={[]}
-        visible={treeVsible}
-        onCancel={setTreeFalse}
-        onSure={() => {
-          setTreeFalse();
-        }}
-      />
-    </div>
-  );
+  // 可拖拽宽度的表头
+  // return <ReactResizable/>
+
+  //拖拽排序
+  // return <DragSort/>
+
+  // return (
+  //   <div>
+  //     <Button onClick={setTrue}>打开成员选择</Button>
+  //     <Button onClick={setTreeTree}>打开组织选择</Button>
+  //     <MemberSelect
+  //       list={[]}
+  //       visible={visible}
+  //       onCancel={setFalse}
+  //       onSure={() => {
+  //         setFalse();
+  //       }}
+  //     />
+  //     <MemberTreeSelect
+  //       list={[]}
+  //       visible={treeVsible}
+  //       onCancel={setTreeFalse}
+  //       onSure={() => {
+  //         setTreeFalse();
+  //       }}
+  //     />
+  //   </div>
+  // );
 
   return (
     <div className="home_wolf h_100 flex flow" ref={pdfRef}>
@@ -102,9 +108,10 @@ const MainPage = (props: any): JSX.Element => {
       <div className="my_app_wrap flex">
         <div className={$c("home_wolf_l", { width54: !collapsed })}>
           <div
+            style={{ padding: '0 12px 8px 12px', borderBottom: '1px solid #efefef7a' }}
             className={$c("flex center", {
               between: collapsed,
-              flexend: !collapsed,
+              flexCenter: !collapsed,
             })}
           >
             {collapsed && (
@@ -115,39 +122,11 @@ const MainPage = (props: any): JSX.Element => {
                 props.updateCollapsed(new Date().getTime());
                 toggle();
               }}
-              style={{ fontSize: 16, cursor: "pointer", color: "#404588" }}
+              style={{ fontSize: 16, cursor: "pointer", color: "rgb(75 76 79)" }}
             >
               <MenuUnfoldOutlined rotate={collapsed ? 180 : 0} />
             </span>
           </div>
-          <Dropdown
-            menu={{ items }}
-            trigger={["click"]}
-            placement="bottom"
-            open={open}
-            overlayClassName="homeDropDown"
-            arrow={{ pointAtCenter: true }}
-            onOpenChange={openToggle}
-          >
-            <div className="home_worl_l_c flex center">
-              <div className="flex center">
-                <span className="theme_icon"></span>
-                <div
-                  className={$c("theme_msg flex flow", { hide: !collapsed })}
-                >
-                  <span>自定义主题</span>
-                  <span className="text-ellipsis">简约</span>
-                </div>
-              </div>
-              <span
-                className={$c("drop_down_icon", {
-                  open: open,
-                  hide: !collapsed,
-                })}
-              ></span>
-            </div>
-          </Dropdown>
-
           <div className="home_worl_l_b">
             {routerPaths.map((item) => (
               <NavLink
@@ -158,9 +137,10 @@ const MainPage = (props: any): JSX.Element => {
                 <div
                   className={$c("r_item", {
                     r_item_active: item.key === selectKey,
+                    smallItem: !collapsed
                   })}
                 >
-                  <span className={`r_item_icon ${item.icon}`}></span>
+                  <span className={`r_item_icon ${item.icon} ${!collapsed ? 'r_item_icon_small' : ""}`}></span>
                   <span
                     className={$c({
                       hide: !collapsed,
